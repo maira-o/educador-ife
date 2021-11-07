@@ -4,7 +4,7 @@ const usuarioService    = require('../services/usuario');
 
 exports.buscaEducador = async (req, res) => {
     //req.user = { _id: '1234' } // APAGAR
-    req.user = { _id: '618717c8593d263427d57b57' } // APAGAR
+    req.user = { _id: req.params.id } // APAGAR
 
     try {
         const reqEducador = {
