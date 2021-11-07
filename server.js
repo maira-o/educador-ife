@@ -27,7 +27,7 @@ mongoose.connect(
 //mongoose.set('useCreateIndex', true);   >>> https://mongoosejs.com/docs/migrating_to_6.html#no-more-deprecation-warning-options <<<
 
 //Make routes available
-app.use('/educador',  educadorRoute);
+app.use('/',  educadorRoute);
 
 const port = process.env.PORT;
 

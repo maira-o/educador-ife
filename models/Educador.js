@@ -4,6 +4,7 @@ var     Schema      = mongoose.Schema;
 const educadorSchema = new Schema({
     usuario: {
         type: Schema.Types.ObjectId,
+        unique: true,
         required: true,
         ref: 'Usuario'
     },
