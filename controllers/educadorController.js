@@ -1,8 +1,7 @@
-const Usuario           = require('../models/Usuario');
-const Educador          = require('../models/Educador');
-const usuarioService    = require('../services/usuario');
+const Usuario   = require('../models/Usuario');
+const Educador  = require('../models/Educador');
 
-exports.buscaEducador = async (req, res) => {
+exports.buscaReduzidaEducador = async (req, res) => {
     usuarioId = req.params.id
     try {
         const educador = await Educador.findOne({ usuario: usuarioId }).exec();
@@ -13,7 +12,7 @@ exports.buscaEducador = async (req, res) => {
         // 200 OK
         res.status(200).json({ status: 200, message: "Sucesso", educador: educador });
     } catch (err){
-        console.log("buscaEducador > err >>>")
+        console.log("buscaReduzidaEducador > err >>>")
         console.log(err)
         // 500 Internal Server Error
         res.status(500).send({ status: 500, message: "Erro ao buscar Educador" });
@@ -46,7 +45,6 @@ exports.novoEducador = async (req, res) => {
         });
 
         const educador = await newEducador.save();
-
         res.status(200).json({ status: 200, message: "Educador cadastrado com sucesso", educador: educador });
     } catch (err){
         console.log("novoEducador > err >>>")
