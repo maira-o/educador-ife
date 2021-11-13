@@ -2,9 +2,9 @@ const Usuario   = require('../models/Usuario');
 const Educador  = require('../models/Educador');
 
 exports.buscaReduzidaEducador = async (req, res) => {
-    usuarioId = req.params.id
+    educadorUsrId = req.params.id
     try {
-        const educador = await Educador.findOne({ usuario: usuarioId }).exec();
+        const educador = await Educador.findOne({ usuario: educadorUsrId }).exec();
         if(!educador){
             // 204 No Content
             return res.status(204).send({ status: 204, message: 'Educador não encontrado' });
