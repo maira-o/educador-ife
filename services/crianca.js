@@ -1,8 +1,8 @@
 const axios = require('axios');
 
-exports.buscaUsuarioPorPapel = async (data) => {
+exports.buscaReduzidaCrianca = async (id) => {
     try {
-        return await axios.post(`${process.env.APP_USUARIO_URL}/buscaUsuarioPorPapel`, data, {
+        return await axios.get(`${process.env.APP_CRIANCA_URL}/buscaReduzidaCrianca/${id}`, {
             headers: { 'Content-Type': 'application/json' /* , token: localStorage.getItem('token') */ }
         });
     } catch (err) {

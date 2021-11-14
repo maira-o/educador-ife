@@ -4,6 +4,7 @@ const atividadeController   = require('../controllers/atividadeController');
 
 router.get('/:id', /* tokenController.validation, */ atividadeController.buscaAtividadesEducador);
 router.post('/', /* tokenController.validation, */ atividadeController.novaAtividade);
+router.put('/:id', /* tokenController.validation, */ atividadeController.editaAtividade);
 router.delete('/:id', /* tokenController.validation, */ atividadeController.inativaAtividade);
 
 module.exports = router;
