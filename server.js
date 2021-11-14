@@ -14,7 +14,8 @@ app.use(cors())
 app.use(morgan('dev'));
 
 //Importing routes
-const educadorRoute = require('./routes/educador');
+const educadorRoute   = require('./routes/educador');
+const atividadeRoute  = require('./routes/atividade');
 
 mongoose.connect(
   process.env.DB_CONNECT, 
@@ -27,7 +28,8 @@ mongoose.connect(
 //mongoose.set('useCreateIndex', true);   >>> https://mongoosejs.com/docs/migrating_to_6.html#no-more-deprecation-warning-options <<<
 
 //Make routes available
-app.use('/',  educadorRoute);
+app.use('/',          educadorRoute);
+app.use('/atividade', atividadeRoute);
 
 const port = process.env.PORT;
 

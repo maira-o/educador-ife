@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/maira-o/educador-ife.git"
   },
-  "author": "",
+  "author": "Gabriel Senna da Rosa",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/maira-o/educador-ife/issues"
@@ -23,9 +23,12 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "joi": "^17.4.2",
     "mongoose": "^6.0.12",
     "mongoose-hidden": "^1.9.1",
-    "morgan": "^1.10.0",
-    "nodemon": "^2.0.14"
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
