@@ -45,7 +45,8 @@ exports.buscaAtividadesEducador = async (req, res) => {
 
 exports.novaAtividade = async (req, res) => {
     try {
-        const userLoggedId = '61873f5d6212a24abe8dd210' // >>> APAGAR <<<
+        // const userLoggedId = '61873f5d6212a24abe8dd210' // >>> APAGAR <<<
+        const userLoggedId = req.headers.userid
 
         const { titulo, descricao, criancas } = req.body
         const atividade = {
