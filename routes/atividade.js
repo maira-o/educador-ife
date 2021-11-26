@@ -1,4 +1,4 @@
-const router            = require('express').Router();
+const router                = require('express').Router();
 const atividadeController   = require('../controllers/atividadeController');
 //const tokenController = require('../controllers/tokenController');
 

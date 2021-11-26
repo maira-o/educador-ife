@@ -7,6 +7,7 @@ const criancaService    = require('../services/crianca');
 exports.buscaAtividadesEducador = async (req, res) => {
     try {
         const educadorExiste = await Usuario.findOne({ _id: req.params.id, papel: 1 }).exec(); // educadorUsrId
+
         if(!educadorExiste){
             // 400 Bad Request
             return res.status(400).send({ status: 400, message: 'Educador não encontrado' });
@@ -27,10 +28,9 @@ exports.buscaAtividadesEducador = async (req, res) => {
             let copia = JSON.parse(JSON.stringify(atividades[i]));
             let criancasAdicionadas = await CriancaAtividade.find({ atividade: atividades[i]._id }).exec();
             let criancasId = []
-            for (var i = 0; i < criancasAdicionadas.length; i++) {
-                criancasId.push(criancasAdicionadas[i].crianca)
+            for (var j = 0; j < criancasAdicionadas.length; j++) {
+                criancasId.push(criancasAdicionadas[j].crianca)
             }
-
             copia.criancas  = criancasId
             atividadesRes.push(copia)
         }
