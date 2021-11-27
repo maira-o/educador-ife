@@ -2,6 +2,11 @@ const   mongoose    = require('mongoose');
 var     Schema      = mongoose.Schema;
 
 const criancasAtividadeSchema = new Schema({
+    educador: {
+        type: Schema.Types.ObjectId,
+        required: true,
+        ref: 'Usuario'
+    },
     crianca: {
         type: Schema.Types.ObjectId,
         required: true,

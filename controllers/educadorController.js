@@ -1,5 +1,8 @@
-const Usuario   = require('../models/Usuario');
-const Educador  = require('../models/Educador');
+const Usuario           = require('../models/Usuario');
+const Educador          = require('../models/Educador');
+const Atividade         = require('../models/Atividade');
+const CriancaAtividade  = require('../models/CriancaAtividade');
+const criancaService    = require('../services/crianca');
 
 exports.buscaReduzidaEducador = async (req, res) => {
     educadorUsrId = req.params.id
@@ -51,5 +54,22 @@ exports.novoEducador = async (req, res) => {
         console.log(err)
         // 500 Internal Server Error
         res.status(500).send({ status: 500, message: "Erro ao registrar educador", error: err });
+    }
+}
+
+exports.apagaEducador = async (req, res) => {
+    educadorUsrId = req.params.id
+    try {
+        await Educador.findOneAndDelete({ usuario: educadorUsrId }).exec();
+        await Atividade.deleteMany({ educador: educadorUsrId }).exec()
+        await CriancaAtividade.deleteMany({ educador: educadorUsrId }).exec()
+        await criancaService.apagaCriancasEducador(educadorUsrId)
+        // 200 OK
+        res.status(200).json({ status: 200, message: "Sucesso" });
+    } catch (err){
+        console.log("apagaEducador > err >>>")
+        console.log(err)
+        // 500 Internal Server Error
+        res.status(500).send({ status: 500, message: "Erro ao apagar Educador" });
     }
 }

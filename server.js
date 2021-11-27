@@ -22,10 +22,7 @@ mongoose.connect(
   {
       useNewUrlParser: true,
       useUnifiedTopology: true
-      //useFindAndModify: false
 });
-
-//mongoose.set('useCreateIndex', true);   >>> https://mongoosejs.com/docs/migrating_to_6.html#no-more-deprecation-warning-options <<<
 
 //Make routes available
 app.use('/educador',          educadorRoute);

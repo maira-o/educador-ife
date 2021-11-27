@@ -95,7 +95,8 @@ exports.editaAtividade = async (req, res) => {
     try {
         const atividadeId   = req.params.id
         const filter        = { _id: atividadeId }
-        const userLoggedId  = '61873f5d6212a24abe8dd210' // >>> APAGAR <<<
+        const userLoggedId  = req.headers.userid
+        // const userLoggedId  = '61873f5d6212a24abe8dd210' // >>> APAGAR <<<
 
         const { titulo, descricao, criancas } = req.body
         const atividade = {
@@ -189,6 +190,7 @@ const vinculaCriancasAtividade = async (req) => {
             if (resCrianca) {
                 if (resCrianca.data.crianca.educador == educador) {
                     let newCriancaAtividade = new CriancaAtividade( {
+                        educador:   educador,
                         crianca:    criancas[i],
                         atividade:  atividade
                     } )
